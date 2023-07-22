@@ -1,0 +1,19 @@
+{
+  "clientes": [
+    {
+        "nome": "Ana",
+        "id": 23,
+        "morada": "funchal"
+    },
+    {
+        "nome": "Alevs",
+        "id": 13,
+        "morada": "funchal"
+    },
+    {
+        "nome": "Lopes",
+        "id": 133,
+		"morada": "funchal"
+    }
+  ]
+}

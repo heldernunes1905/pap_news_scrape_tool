@@ -1,0 +1,22 @@
+sqlcmd -S LAPTOP-2U3PQJ85\SQLEXPRESS -E
+connect sqlcmd
+function json($data){
+	header('Content-Type: application/json');
+    $fp = fopen('results.json', 'w');
+    $fp1 = fopen('new.json', 'a');
+    $nada = array();
+    $i=0;
+    $page = file_get_contents('results.json'); // colocar o conteudo do ficheiro numa variavel
+    $lista = json_decode($page,true); // decode JSON
+    foreach ($lista['zero'] as $value) {
+        $nada[$i] = $value;
+        $i++;
+    }
+    $result = array_merge($nada, $data);
+    echo json_encode($result);
+    
+    //fwrite($fp, json_encode($data));
+    //fwrite($fp1, $json);
+    fclose($fp1);
+    //echo json_encode($data);
+}
