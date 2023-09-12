@@ -137,7 +137,7 @@ function filterFunction() {
 <body>
 
 <div id="div1" class="div" style="overflow-y: scroll;">
-<h1>Fontes</h1>
+<h1>Source</h1>
 <!--<div class="dropdown">
 
   <button onclick="myFunction()" class="dropbtn"><i class="fas fa-search"></i></button>

@@ -14,7 +14,7 @@ $conn = mysqli_connect("localhost","root","","test");
 $message="";
 
 if(!empty($_POST["login"])) {
-	$result = mysqli_query($conn,"SELECT * FROM usuario WHERE user_name='" . $_POST["user_name"] . "' and password = '". "a"."'");
+	$result = mysqli_query($conn,"SELECT * FROM usuario WHERE user_name='" . $_POST["user_name"] . "'");
 	$row  = mysqli_fetch_array($result);
 	$query = mysqli_query($conn,"UPDATE usuario SET logged=1 WHERE user_id =".$row['user_id']);
 	setcookie('logged', $row['user_id'], time() + (86400 * 30), "/");
@@ -97,7 +97,7 @@ if(!empty($_POST["logout"])) {
             </div>
             <div class="container"></div>
             <div class="modal-body">
-			<form action="" method="post">
+			<form action="" method="post" id="myForm">
 			<div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>	
 			<select id="user_name" name='user_name'>
     			<option name="user_name">a</option>
@@ -114,7 +114,10 @@ if(!empty($_POST["logout"])) {
         </div>
     </div>
 	<script>
+		
 		opena();
+
+		
 	</script>
 </div>
 <?php 

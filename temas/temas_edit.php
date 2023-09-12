@@ -88,7 +88,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                	<h4 class="modal-title">Tematicas</h4>
+                	<h4 class="modal-title">Themes</h4>
 			
             </div>
             <div class="container"></div>
@@ -101,31 +101,31 @@
 							$other_id = $fetch_tema[2];
 							?>
         				
-                       	<div  id="<?php echo $id?>" class="temas_modal" onclick="clicka(this.id)" style="background:rgb(255, 255, 255);" ><?php print $tematica;?>&nbsp</div>
+                       	<div  id="<?php echo $id?>" class="temas_modal" onclick="clickatem(this.id)" style="background:rgb(255, 255, 255);" ><?php print $tematica;?>&nbsp</div>
                   		
 						<?php }?>
                   		
             </div>
 
-            <div class="modal-footer"><p data-dismiss="modal" class="btn" onclick="clickando()">Eliminar as tematicas</p><a href="#" data-dismiss="modal" class="btn">Close</a>
+            <div class="modal-footer"><p data-dismiss="modal" class="btn" onclick="clickando()">Delete Themes</p><a href="#" data-dismiss="modal" class="btn">Close</a>
 			</div>
         </div>
     </div>
 </div>	
 <br />
 <br />
-<button type="button" id="test-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Criar</button>        	
+<button type="button" id="test-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Create theme</button>        	
 
 <div class="modal fade rotate" id="myModal2">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Criar temáticas</h4>
+                <h4 class="modal-title">Create theme</h4>
             </div>
             <div class="container"></div>
             <div class="modal-body">
             <form action="./temas/insert_temas.php">
-				Nome da temática: <input type="text" name="tname">
+				Theme name: <input type="text" name="tname">
 				<input type="text" name="fonte" style="display:none" value="<?php echo $_GET['fonte'];?>">
 				<input type="text" name="id" style="display:none" value="<?php echo $_GET['id'];?>">
 				<input type="text" name="temas" style="display:none" value="<?php echo $_GET['temas'];?>">
@@ -140,13 +140,13 @@
 <br />
 <br />
 
-<button type="button" id="test-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3">Editar Temáticas</button>        	
+<button type="button" id="test-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3">Edit Theme</button>        	
 
 <div class="modal fade rotate" id="myModal3">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                	<h4 class="modal-title">Editar temáticas</h4>
+                	<h4 class="modal-title">Edit Theme</h4>
             </div>
             <div class="container"></div>
             <div class="modal-body">
@@ -156,7 +156,7 @@
 							$id = $fetch_tema[0];
 							$other_id = $fetch_tema[2];
 						?>
-							<div  id="<?php echo $other_id; ?>" class="temas_edit" onclick="clicka(this.id)" style="background:rgb(255, 255, 255);" ><?php print $tematica;?></div>
+							<div  id="<?php echo $other_id; ?>" class="temas_edit" onclick="clickatem(this.id)" style="background:rgb(255, 255, 255);" ><?php print $tematica;?></div>
 						<?php };?>
             </div>
             <div class="modal-footer">	
@@ -227,7 +227,7 @@
 			
     	}
     	//funcao dentro do modal window
-    	function clicka(id){
+    	function clickatem(id){
         	 var e = document.getElementById(id);
         	 var c = window.getComputedStyle(e).backgroundColor;
         	 if (c === "rgb(237, 67, 55)") {
