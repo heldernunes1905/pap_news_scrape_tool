@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <h1>Noticia</h1> 
+    <h1>Article</h1> 
     <?php
 	$listaArtigo = getArtigo($_GET['id']);
 	while( $row = mysqli_fetch_array( $listaArtigo)){  
@@ -54,15 +54,15 @@
 				<option value="3" name="avia">3</option>             
    			</select>
 			<select id="favorito" name='favorito'>
-				<option value="1" name="avia">1-Totalmente relacionado e altamente não favorável</option>
-    	  		<option value="2" name="avia">2-Relacionado e altamente não favorável</option>
-				<option value="3" name="avia">3-Totalmente relacionado e não favorável</option> 
-				<option value="4" name="avia">4-Relacionado sem favorabilidade assumida</option>
-				<option value="5" name="avia">5-Totalmente relacionado sem favorabilidade assumida</option> 
-				<option value="6" name="avia">6-Relacionado e altamente favorável</option>
-				<option value="7" name="avia">7-Totalmente relacionado e altamente favorável</option> 
+			<option value="1" name="avia">1-Totally related and highly not favorable</option>
+    	  		<option value="2" name="avia">2-Related and highly not favorable</option>
+				<option value="3" name="avia">3-Totally related and not favorable</option> 
+				<option value="4" name="avia">4-Related with unassumed favorability</option>
+				<option value="5" name="avia">5-Totally related without favorability assumed</option> 
+				<option value="6" name="avia">6-Related and highly favorable</option>
+				<option value="7" name="avia">7-Totally related and highly favorable</option> 
    			</select>
-			   Realcar:<input type="checkbox" id="checkselect">
+			   Highlight:<input type="checkbox" id="checkselect">
         	</textarea>
         	</div>
     	    <button id ="btnStatus" type="button" onclick="myAjax()">Save</button>

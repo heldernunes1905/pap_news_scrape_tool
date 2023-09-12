@@ -76,7 +76,7 @@
 			<?php 
 			if($publi == 1 && !empty($logged_in[1])){
 				echo $link.'<br />';
-				?><input type="button" id="despub" value="Despublicar"/>
+				?><input type="button" id="despub" value="Unpublish"/>
 				<script> 
 				var despubli = document.getElementById('despub');
 				despubli.addEventListener('click', function() {
@@ -98,7 +98,7 @@
 			}
 				$arr_edits = ['1', $logged_in[1]];
 				$arr_edits = implode(",",$arr_edits);
-			    $query = mysqli_query($conn,"UPDATE noticias SET editing='$arr_edits' WHERE id =".$_GET["id"]);
+			    $query = mysqli_query($conn,"UPDATE noticias SET editing='".$_COOKIE['logged']."' WHERE id =".$_GET["id"]);
 				?>
 				
 
@@ -110,21 +110,21 @@
 				<option value="3" name="avia">3</option>             
 			   </select>
 			   <br />
-			Favorabilidade:<select id="favorito" name='favorito'>
-				<option value="1" name="avia">1-Totalmente relacionado e altamente não favorável</option>
-    	  		<option value="2" name="avia">2-Relacionado e altamente não favorável</option>
-				<option value="3" name="avia">3-Totalmente relacionado e não favorável</option> 
-				<option value="4" name="avia">4-Relacionado sem favorabilidade assumida</option>
-				<option value="5" name="avia">5-Totalmente relacionado sem favorabilidade assumida</option> 
-				<option value="6" name="avia">6-Relacionado e altamente favorável</option>
-				<option value="7" name="avia">7-Totalmente relacionado e altamente favorável</option> 
+			Favorability:<select id="favorito" name='favorito'>
+				<option value="1" name="avia">1-Totally related and highly not favorable</option>
+    	  		<option value="2" name="avia">2-Related and highly not favorable</option>
+				<option value="3" name="avia">3-Totally related and not favorable</option> 
+				<option value="4" name="avia">4-Related with unassumed favorability</option>
+				<option value="5" name="avia">5-Totally related without favorability assumed</option> 
+				<option value="6" name="avia">6-Related and highly favorable</option>
+				<option value="7" name="avia">7-Totally related and highly favorable</option> 
 			   </select>
 			   <br />
-			   Realcar:<input type="checkbox" id="checkselect">
+			   Highlight:<input type="checkbox" id="checkselect">
 			<br />
-        	<input type="button" id="editar" value="Editar" class="btn btn-warning"/>
-        	<input type="button" id="apagar" value="Apagar" class="btn btn-danger"/>
-			<input type="button" id="publicar" value="Publicar"onclick="myAjax()" class="btn btn-success"/>
+        	<input type="button" id="editar" value="Edit" class="btn btn-warning"/>
+        	<input type="button" id="apagar" value="Delete" class="btn btn-danger"/>
+			<input type="button" id="publicar" value="Publish"onclick="myAjax()" class="btn btn-success"/>
 			<?php }?>
      </form>
 	 

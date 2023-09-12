@@ -41,17 +41,17 @@
 				}
 			?>
     		<select id="estado" name='estado'>
-    				<option value="nao_publicado" name="estado">Nao Publicado</option>
-    	    	<option value="publicado" name="estado">Publicado</option>            
+    				<option value="nao_publicado" name="estado">Not Published</option>
+    	    	<option value="publicado" name="estado">Published</option>            
    			</select>
 			   <?php $options = mysqli_query($conn,"SELECT * FROM usuario");?>
    			<select id="user" name='user'>
-   			    <option value="0" name="user">Todos os utilizadores</option>  			
+   			    <option value="0" name="user"> All users</option>  			
 				<?php while( $option = mysqli_fetch_array($options)){  ?>
 					<option value="<?php echo $option[1]; ?>" name="user"><?php echo $option[1]?></option>            
 				<?php }?>
        			</select>
-				   <select data-placeholder="Tematicas" multiple class="chosen-select" tabindex="18" id="tematicas">
+				   <select data-placeholder="Theme selection" multiple class="chosen-select" tabindex="18" id="tematicas">
 				 <?php $p=0;
 					 sort($temas_break);
 					 while( $row = mysqli_fetch_array( $lista)){ ?>
@@ -63,7 +63,7 @@
 				 <?php } 
 				}?>
    			</select>
-			   <select data-placeholder="Fontes" multiple class="chosen-select" tabindex="18" id="multiple-label-example">
+			   <select data-placeholder="Sources" multiple class="chosen-select" tabindex="18" id="multiple-label-example">
 			   <?php $j=0;
 			   sort($fontes_break);
 				 while( $fetch_fonte = mysqli_fetch_array( $fontes)){ ?>
@@ -100,20 +100,21 @@
 						<option value="realcar" name="highlighted">realcar</option>
     	    	<option value="nao realcar" name="highlighted">nao realcar</option>            
    			</select>-->
-   			<input type="submit" name="submit" onclick="clickar()" value="Filtrar" id="submit" />	
+   			<input type="submit" name="submit" onclick="clickar()" value="Use Filters" id="submit" />	
 				
-			<input type="button" data-toggle="modal" data-target="#ModalRelatorio" value ="Relatorio"/>        	
+			<input type="button" data-toggle="modal" data-target="#ModalRelatorio" value ="Report"/>        	
 			<div class="modal fade" id="ModalRelatorio">
 				<div class="modal-dialog1">
 					<div class="modal-content">
 						<div class="modal-header">
-								<h4 class="modal-title">Relatorio de Erros</h4>
+								<h4 class="modal-title">Error report</h4>
 						</div>
 						<div class="container"></div>
 						<div class="modal-body">
 									<?php 
 									$lista = relatorio();
 									while( $fetch_tema = mysqli_fetch_array( $lista)){ 
+										
 										$fonte = $fetch_tema[1];
 										$id = $fetch_tema[0];
 										$link = $fetch_tema[4];
@@ -126,7 +127,7 @@
 									
 						</div>
 
-						<div class="modal-footer"><p data-dismiss="modal" class="btn" onclick="remove_rel()">Eliminar as tematicas</p><a href="#" data-dismiss="modal" class="btn">Close</a>
+						<div class="modal-footer"><p data-dismiss="modal" class="btn" onclick="remove_rel()">Delete news</p><a href="#" data-dismiss="modal" class="btn">Close</a>
 						</div>
 					</div>
 				</div>
@@ -134,6 +135,7 @@
 			<i class="fas fa-sync-alt" onclick="refresh()"></i>
    			<script type="text/javascript">
 			   	function clicka(id){
+					alert("fasfasfasf");
 					var e = document.getElementById(id);
 					var c = window.getComputedStyle(e).backgroundColor;
 					if (c === "rgb(237, 67, 55)") {
@@ -204,20 +206,37 @@
 
             }*/
 
-			var data1,data2;
+			var data1,data2,user,estado,tematica,fonte;
             window.onload= function(){
 
-            	if(localStorage['user'])
+            	if(localStorage['user']){
                     document.getElementById("user").value = localStorage['user'];
-                
-                if(localStorage['estado'])
+				}else if(!estado){
+					document.cookie = "user=0";
+				}
+
+                if(localStorage['estado']){
                     document.getElementById("estado").value = localStorage['estado'];
-                
-				if(localStorage['multiple-label-example'])
+				}else if(!estado){
+					document.cookie = "estado=nao_publicado";
+				}
+				
+				if(localStorage['tematica']){
+                    document.getElementById("tematica").value = localStorage['tematica']; 
+				}else if(!tematica){
+					document.cookie = "tematica=";
+				}
+
+				if(localStorage['fonte']){
+				}else if(!fonte){
+					document.cookie = "fonte=";
+				}
+
+				if(localStorage['multiple-label-example']){
                     document.getElementById("multiple-label-example").value = localStorage['multiple-label-example']; 
+				}
 			
-				if(localStorage['tematicas'])
-                    document.getElementById("tematicas").value = localStorage['tematicas']; 
+				
 				
 				if(localStorage['data_1']){
                     document.getElementById("data_1").value = localStorage['data_1']; 
@@ -225,16 +244,15 @@
 					
 					document.cookie = "data1="+data1;
 
-				}
-				if(!data1){
+				}else if(!data1){
 					document.cookie = "data1=1900-01-01";
 				}
+				
 				if(localStorage['data_2']){
                     document.getElementById("data_2").value = localStorage['data_2'];            
 					data2 = $('#data_2').val();
 					document.cookie = "data2="+data2;
-				}
-				if(!data2){
+				}else if(!data2){
 					
 					var d = new Date();
 					var month = d.getMonth()+1;
@@ -245,6 +263,7 @@
 						((''+day).length<2 ? '0' : '') + day;
 					document.cookie = "data2="+output;
 				}
+				
 				if(localStorage['avia'])
             document.getElementById("avia").value = localStorage['avia'];
 

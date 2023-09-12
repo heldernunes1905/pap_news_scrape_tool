@@ -7,7 +7,7 @@
 
 	</head>
 	<body>
-		<h1>Noticias</h1>	
+		<h1>News</h1>	
 		<!--<div class="dropdown">
 			<button onclick="myFunction1()" class="dropbtn"><i class="fas fa-search"></i></button>
 			<div id="myDropdown1" class="dropdown-content">-->
@@ -44,15 +44,15 @@
 							$lista = usernews($selected_user,$id,$selected_tema,$selected_data1,$selected_data2);
 							while($row = mysqli_fetch_array( $lista)){	
 								
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$i++;
 							}
@@ -63,15 +63,15 @@
 								$lista = get_user_publ_new1($id,$selected_user,$selected_tema,$selected_data1,$selected_data2,$selected_highlight);
 							}
 							while($row = mysqli_fetch_array( $lista)){				
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$i++;
 							}
@@ -83,15 +83,15 @@
 							}
 							
 							while($row = mysqli_fetch_array( $lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$i++;
 							}
@@ -101,15 +101,15 @@
 								
 								$lista = get_user_publ_new3($id,$selected_user,$selected_tema,$selected_data1,$selected_data2,$selected_favorito,$selected_highlight);
 								while($row = mysqli_fetch_array( $lista)){						
-									$editing[$i] = $row[13];
+									$editing[$i] = $row["editing"];
 									$id_not[$i] = $row[1];
-									$title[$i] = $row[2];	
-									$resumo[$i] = $row[4];
-									$date[$i] = $row[7];
-									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-									$date_pub = $row[16];
+									$title[$i] = $row["title"];	
+									$resumo[$i] = $row["resumo"];
+									$date[$i] = $row["date"];
+									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+									$date_pub = $row["new_date"];
 									if(!empty($date_pub)){
-										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 									}	
 									$i++;
 								}
@@ -119,15 +119,16 @@
 								foreach($lista as $listagem){	
 								while($row = mysqli_fetch_array( $listagem)){
 									
-									$editing[$i] = $row[13];
+									$editing[$i] = $row["editing"];
 									$id_not[$i] = $row[1];
-									$title[$i] = $row[2];	
-									$resumo[$i] = $row[4];
-									$date[$i] = $row[7];
-									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-									$date_pub = $row[16];
+									$title[$i] = $row["title"];	
+									$resumo[$i] = $row["resumo"];
+									$date[$i] = $row["new_date"];
+									
+									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+									$date_pub = $row["new_date"];
 									if(!empty($date_pub)){
-										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 									}
 									$i++;
 								}
@@ -140,15 +141,15 @@
 						}else if($selected_val === "nao_publicado"){
 							$lista = nonews($id,$selected_tema,$selected_data1,$selected_data2);
 							while($row = mysqli_fetch_array( $lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$i++;
 							}
@@ -157,15 +158,15 @@
 						}else if($selected_val === "publicado" && $selected_avi === "0" && $selected_favorito === "0" && $selected_highlight === "0"){
 							$lista = get_avi($id,$selected_tema,$selected_data1,$selected_data2);
 							while($row = mysqli_fetch_array( $lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}	
 								$i++;
 							}
@@ -180,15 +181,15 @@
 							
 							}
 							while($row = mysqli_fetch_array( $lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}	
 								$i++;
 							}
@@ -196,15 +197,15 @@
 							$lista = get_avi_fav2($id,$selected_tema,$selected_data1,$selected_data2,$selected_highlight);
 								foreach($lista as $list){								
 								while($row = mysqli_fetch_array( $list)){						
-									$editing[$i] = $row[13];
+									$editing[$i] = $row["editing"];
 									$id_not[$i] = $row[1];
-									$title[$i] = $row[2];	
-									$resumo[$i] = $row[4];
-									$date[$i] = $row[7];
-									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-									$date_pub = $row[16];
+									$title[$i] = $row["title"];	
+									$resumo[$i] = $row["resumo"];
+									$date[$i] = $row["date"];
+									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+									$date_pub = $row["new_date"];
 									if(!empty($date_pub)){
-										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 									}	
 									$i++;
 							}	
@@ -216,15 +217,15 @@
 									$lista = get_avi_fav12($id,$selected_tema,$selected_data1,$selected_data2,$selected_avi,$selected_highlight,$selected_favorito);
 							}
 							while($row = mysqli_fetch_array( $lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$i++;
 							}
@@ -239,15 +240,15 @@
 							}
 							foreach($lista as $listagem){
 							while($row = mysqli_fetch_array( $listagem)){
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$user[$i] = $row[12];
 
@@ -261,15 +262,15 @@
 									$lista = get_avi_fav4($id,$selected_tema,$selected_data1,$selected_data2,$selected_avi,$selected_highlight,$selected_favorito);
 							}
 							while($row = mysqli_fetch_array( $lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}	
 								$i++;
 							}
@@ -281,45 +282,45 @@
 								$lista = get_avi_fav5($id,$selected_tema,$selected_data1,$selected_data2,$selected_avi,$selected_favorito);
 							}
 								while($row = mysqli_fetch_array($lista)){						
-									$editing[$i] = $row[13];
+									$editing[$i] = $row["editing"];
 									$id_not[$i] = $row[1];
-									$title[$i] = $row[2];	
-									$resumo[$i] = $row[4];
-									$date[$i] = $row[7];
-									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-									$date_pub = $row[16];
+									$title[$i] = $row["title"];	
+									$resumo[$i] = $row["resumo"];
+									$date[$i] = $row["date"];
+									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+									$date_pub = $row["new_date"];
 									if(!empty($date_pub)){
-										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 									}	
 									$i++;
 								}
 						}else if($selected_val === "publicado" && $selected_favorito === "0"){
 								$lista = get_avi_fav1($id,$selected_tema,$selected_data1,$selected_data2,$selected_avi);
 								while($row = mysqli_fetch_array($lista)){						
-									$editing[$i] = $row[13];
+									$editing[$i] = $row["editing"];
 									$id_not[$i] = $row[1];
-									$title[$i] = $row[2];	
-									$resumo[$i] = $row[4];
-									$date[$i] = $row[7];
-									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');
-									$date_pub = $row[16];
+									$title[$i] = $row["title"];	
+									$resumo[$i] = $row["resumo"];
+									$date[$i] = $row["date"];
+									$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');
+									$date_pub = $row["new_date"];
 									if(!empty($date_pub)){
-										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+										$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 									}	
 									$i++;
 								}
 						}else if($selected_val === "publicado"){
 							$lista = get_news_tema1($id,$selected_tema,$selected_data1,$selected_data2,$selected_avi,$selected_highlight,$selected_favorito);
 							while($row = mysqli_fetch_array($lista)){						
-								$editing[$i] = $row[13];
+								$editing[$i] = $row["editing"];
 								$id_not[$i] = $row[1];
-								$title[$i] = $row[2];	
-								$resumo[$i] = $row[4];
-								$date[$i] = $row[7];
-								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y h:i:s');	
-								$date_pub = $row[16];
+								$title[$i] = $row["title"];	
+								$resumo[$i] = $row["resumo"];
+								$date[$i] = $row["date"];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row["new_date"];
 								if(!empty($date_pub)){
-									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y h:i:s');	
+									$date_pub = DateTime::createFromFormat('Y-m-d H:i:s', $date_pub)->format('d-m-Y H:i:s');	
 								}
 								$i++;
 							}
@@ -331,11 +332,11 @@
 					}*/
 			?>
 			
-        	<input type="submit" name="submit" value="Eliminar noticias" onclick="delete_varias()"/>
+        	<input type="submit" name="submit" value="Remove news" onclick="delete_varias()"/>
         		<table id="table">
             		<thead>
                 		<tr>
-                			<th>Noticias</th>
+                			<th>Articles</th>
                 			<th><input type="checkbox"  onClick="toggle(this)"></th>
                 		</tr>
                 	</thead>
@@ -345,7 +346,7 @@
 							   	$stuff = array();
 								$a = 0;	 
 								$count = count($id_not);
-
+								
 							   for($i = 0;$i<$count;$i++){	
 								if($editing[$i] == 0){
 									?>
@@ -353,14 +354,18 @@
 									echo $resumo[$i].'<br/>';
 									if($selected_val === "publicado"){
 										if($editing[$i] === '0'){
-											echo 'Publicado por:'.$logged_in[1].'<br />';
+											echo 'Published by:'.$logged_in[1].'<br />';
 											echo 'Data:'.$date_pub.'<br />';
 
 										}else{
 											?>
-											<p>A ser editado por: <?php
+											<p>Being Edited by: <?php
 											$stuffff = explode(",",$editing[$i]);
-											echo $stuffff[1];?> </p>
+											$userediting = useredit($stuffff[0]);
+											$row = mysqli_fetch_array($userediting);
+											
+											
+											echo $row["user_name"];?> </p>
 											</td>
 											<?php
 										}
@@ -373,9 +378,27 @@
 								 }else{
 									?>
 									<td id=<?php echo $id_not[$i];?>><?php echo "<p>".$title[$i]."<p/>";?>
-									<p>A ser editado por: <?php
+									<p>Being Edited by: <?php
+
+									
+									/*
+								while($row = mysqli_fetch_array( $lista)){						
+								$editing[$i] = $row[13];
+								$id_not[$i] = $row[1];
+								$title[$i] = $row[2];	
+								$resumo[$i] = $row[4];
+								$date[$i] = $row[7];
+								$date[$i] = DateTime::createFromFormat('Y-m-d H:i:s', $date[$i])->format('d-m-Y H:i:s');	
+								$date_pub = $row[16];
+								
+							
+									*/
 									$stuffff = explode(",",$editing[$i]);
-									echo $stuffff[1];?> </p>
+									$userediting = useredit($stuffff[0]);
+									$row = mysqli_fetch_array($userediting);
+									
+									
+									echo $row["user_name"];?> </p>
 									</td>
                 					<td><input type="checkbox" name="check[]" class="delete_varias" id ="myCheck[]" value="<?php echo $id_not[$i];?>"></td>	
 									<?php

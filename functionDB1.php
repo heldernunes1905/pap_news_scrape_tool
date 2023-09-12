@@ -944,6 +944,16 @@ function news_tema($id,$s_t,$sd1,$sd2){
         return $result;
         
     }
+
+    function useredit($id){
+        global $conn;
+        
+        $tsql="SELECT user_name FROM usuario where user_id = $id";
+        $result = mysqli_query( $conn, $tsql);
+        return $result;
+        
+    }
+
     function temas_choose($id){
         global $conn;
         $tsql= "SELECT fonte FROM fontes WHERE id='$id'";
