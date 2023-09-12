@@ -100,8 +100,8 @@ if(!empty($_POST["logout"])) {
 			<form action="" method="post" id="myForm">
 			<div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>	
 			<select id="user_name" name='user_name'>
-    			<option name="user_name">a</option>
-    			<option name="user_name">s</option>
+    			<option name="user_name">Asgardan</option>
+    			<option name="user_name">Sully</option>
 			</select>
 			
             </div>

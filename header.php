@@ -205,30 +205,35 @@
 				document.cookie = "highlight="+localStorage['highlight'];
 
             }*/
-
+			
+			
 			var data1,data2,user,estado,tematica,fonte;
             window.onload= function(){
 
             	if(localStorage['user']){
                     document.getElementById("user").value = localStorage['user'];
-				}else if(!estado){
+				}
+				 if(!user){
 					document.cookie = "user=0";
 				}
 
                 if(localStorage['estado']){
                     document.getElementById("estado").value = localStorage['estado'];
-				}else if(!estado){
+				}
+				 if(!estado){
 					document.cookie = "estado=nao_publicado";
 				}
 				
 				if(localStorage['tematica']){
                     document.getElementById("tematica").value = localStorage['tematica']; 
-				}else if(!tematica){
+				}
+				 if(!tematica){
 					document.cookie = "tematica=";
 				}
 
 				if(localStorage['fonte']){
-				}else if(!fonte){
+				}
+				 if(!fonte){
 					document.cookie = "fonte=";
 				}
 
@@ -244,7 +249,8 @@
 					
 					document.cookie = "data1="+data1;
 
-				}else if(!data1){
+				}
+				 if(!data1){
 					document.cookie = "data1=1900-01-01";
 				}
 				
@@ -252,7 +258,8 @@
                     document.getElementById("data_2").value = localStorage['data_2'];            
 					data2 = $('#data_2').val();
 					document.cookie = "data2="+data2;
-				}else if(!data2){
+				}
+				 if(!data2){
 					
 					var d = new Date();
 					var month = d.getMonth()+1;

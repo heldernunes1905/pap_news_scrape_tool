@@ -1,6 +1,7 @@
 this project uses python to scrape several news websites and get important information about them such as the news title, image, description and the article itself.
 
 after article has been added into the database a user can edit it, publish it or remove it
+
 ![Screenshot 2023-09-12 134212](https://github.com/heldernunes1905/pap_news_scrape_tool/assets/79063381/213d73ed-065c-4174-bce0-05e3e911bc3f)
 
 

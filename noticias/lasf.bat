@@ -1,1 +1,1 @@
-D:\xampp1\php\php.exe -f "D:\xampp1\htdocs\estagio-3\noticias\teste_p1.php"
+D:\xampp1\php\php.exe -f "D:\xampp1\htdocs\pap_news_scrape_tool-main\noticias\teste_p1.php"
