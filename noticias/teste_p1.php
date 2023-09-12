@@ -1,7 +1,7 @@
 <?php
 
 require('simple_html_dom.php');
-include 'D:/xampp1/htdocs/estagio-3/functionDB1.php';
+include 'D:/xampp1/htdocs/pap_news_scrape_tool-main/functionDB1.php';
 $lista = url();
 $b = 0;
 while( $row = mysqli_fetch_array( $lista)){  
@@ -1527,7 +1527,7 @@ json($listaUtentes);
 function json($data){
    
     $json = json_encode($data);
-    $fp1 = fopen('D:/xampp1/htdocs/estagio-3/noticias/new.json', 'w');
+    $fp1 = fopen('D:/xampp1/htdocs/pap_news_scrape_tool-main/noticias/new.json', 'w');
     fwrite($fp1, $json);
     fclose($fp1);
     //echo json_encode($data);
